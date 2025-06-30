@@ -1,12 +1,42 @@
-# React + Vite
+# MD Bulbul Hasan | Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal developer portfolio website built with **React** and **Tailwind CSS** to showcase my projects, skills, and educational background in a clean, responsive, and modern UI.
 
-Currently, two official plugins are available:
+## Live Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ [Visit](https://my-portfolio-v1.surge.sh/) 
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React** – component-based architecture for efficient UI
+- **Tailwind CSS** – utility-first CSS for rapid and responsive styling
+- **Framer Motion** – smooth animations and transitions
+- **React Icons** – clean iconography
+- **DaisyUI** – prebuilt Tailwind component styling
+
+## Features
+
+- Responsive design for all devices
+- Smooth scrolling navigation
+- Light/Dark theme toggle
+- Projects section with live links and GitHub repositories
+- About section highlighting skills and current learning focus
+- Contact section for easy reach-out
+  
+--
+
+
+## Upcoming Improvements
+
+- Add blog section for articles and learning notes
+- Integrate contact form with EmailJS or Formspree
+- Enhance animations with custom Framer Motion variants
+
+### Installation & Setup
+
+**Clone the repo**
+
+git clone https://github.com/mdbulbulhasan/your-portfolio-repo.git
+cd your-portfolio-repo
+
+npm install
