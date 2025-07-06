@@ -25,7 +25,7 @@ const HeroSection = () => {
         </p>
         <div className="space-x-4">
           <a
-            href="https://drive.google.com/file/d/1Ir3VbfeXQHQXit-WrSdRCeUsiVkGmUvK/view?usp=sharing"
+            href="https://drive.google.com/file/d/1nlC5IwyiGZqgLNaiKmSvz3WXDelxNu7z/view?usp=sharing"
             target="_blank"
             rel="noreferrer"
             className="btn btn-primary"
