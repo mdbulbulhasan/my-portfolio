@@ -32,7 +32,6 @@ const Contact = () => {
         },
         "6oLHyFBsSxgS43KW0"
       )
-
       .then(
         (result) => {
           Swal.fire({
@@ -63,14 +62,44 @@ const Contact = () => {
       );
   };
 
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.14 } },
+  };
+
+  const sideVariantsLeft = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const sideVariantsRight = {
+    hidden: { opacity: 0, x: 20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
     <motion.section
       id="contact"
       className="min-h-screen px-2 md:px-4 py-8 md:py-16 pb-32"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.7, type: "spring", stiffness: 80 }}
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.7, ease: "easeOut" },
+        },
+      }}
     >
       <div className="max-w-5xl mx-auto w-full">
         <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center text-cyan-200">
@@ -78,20 +107,12 @@ const Contact = () => {
         </h2>
         <motion.div
           className="flex flex-col md:flex-row gap-4 md:gap-8"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            visible: { transition: { staggerChildren: 0.14 } },
-            hidden: {},
-          }}
+          variants={containerVariants}
         >
           {/* Left Side Contact Info */}
           <motion.div
             className="md:w-1/2 w-full space-y-4 glassmorphism-card p-4 md:p-7 rounded-2xl shadow-lg border border-cyan-400/20"
-            initial={{ opacity: 0, x: -32 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7, type: "spring", stiffness: 80 }}
+            variants={sideVariantsLeft}
           >
             <h3 className="text-lg md:text-xl font-semibold text-cyan-100">
               Get in Touch
@@ -123,10 +144,7 @@ const Contact = () => {
           {/* Right Side Contact Form */}
           <motion.div
             className="md:w-1/2 w-full glassmorphism-card p-4 md:p-7 rounded-2xl shadow-lg border border-cyan-400/20"
-            initial={{ opacity: 0, x: 32 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7, type: "spring", stiffness: 80 }}
+            variants={sideVariantsRight}
           >
             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
               <input
@@ -168,7 +186,7 @@ const Contact = () => {
                 aria-label="Message"
                 rows="5"
                 className="w-full rounded-lg border border-cyan-400/50 bg-transparent px-4 py-2 text-cyan-100 placeholder-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition resize-none"
-              ></textarea>
+              />
               <motion.button
                 type="submit"
                 className="w-full bg-cyan-400 text-gray-900 font-semibold rounded-lg py-2 shadow-md hover:bg-cyan-500 active:scale-95 transition-transform"
