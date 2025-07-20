@@ -7,8 +7,12 @@ import {
   FaNodeJs,
   FaGithub,
 } from "react-icons/fa";
-import { SiTailwindcss, SiMongodb, SiExpress, SiMysql } from "react-icons/si";
-
+import {
+  SiTailwindcss,
+  SiMongodb,
+  SiExpress,
+  SiFirebase,
+} from "react-icons/si";
 
 const skills = [
   { icon: <FaHtml5 />, name: "HTML", desc: "HTML: Markup Master" },
@@ -23,7 +27,11 @@ const skills = [
   { icon: <FaNodeJs />, name: "NodeJS", desc: "Node.js: Backend Builder" },
   { icon: <SiExpress />, name: "ExpressJS", desc: "Express: API Architect" },
   { icon: <SiMongodb />, name: "MongoDB", desc: "MongoDB: Data Dynamo" },
-  { icon: <SiMysql />, name: "MySQL", desc: "MySQL: Query Quickdraw" },
+  {
+    icon: <SiFirebase />,
+    name: "Firebase",
+    desc: "Firebase: Auth & Hosting Ace",
+  },
   { icon: <FaGithub />, name: "GitHub", desc: "GitHub: Version Virtuoso" },
 ];
 
@@ -57,17 +65,18 @@ const Skills = () => {
             </div>
           ))}
         </div>
-      {/* CSS for optimized hover/active effects */}
-      <style>{`
-        .css-skill-animate {
-          transition: transform 0.22s cubic-bezier(.4,0,.2,1), box-shadow 0.22s cubic-bezier(.4,0,.2,1), color 0.18s;
-        }
-        .css-skill-animate:hover, .css-skill-animate:focus-visible {
-          transform: scale(1.07);
-          box-shadow: 0 0 24px 6px #67e8f9, 0 0 8px 2px #22d3ee;
-          color: #a5f3fc;
-        }
-      `}</style>
+
+        {/* CSS for optimized hover/active effects */}
+        <style>{`
+          .css-skill-animate {
+            transition: transform 0.22s cubic-bezier(.4,0,.2,1), box-shadow 0.22s cubic-bezier(.4,0,.2,1), color 0.18s;
+          }
+          .css-skill-animate:hover, .css-skill-animate:focus-visible {
+            transform: scale(1.07);
+            box-shadow: 0 0 24px 6px #67e8f9, 0 0 8px 2px #22d3ee;
+            color: #a5f3fc;
+          }
+        `}</style>
       </div>
     </section>
   );

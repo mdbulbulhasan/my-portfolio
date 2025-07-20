@@ -1,41 +1,89 @@
 import React from "react";
-import { FaExternalLinkAlt, FaGithub, FaUsers, FaClock, FaCode, FaTrophy, FaGlobe, FaCodeBranch } from "react-icons/fa";
+import {
+  FaExternalLinkAlt,
+  FaGithub,
+  FaUsers,
+  FaClock,
+  FaCode,
+  FaTrophy,
+  FaGlobe,
+  FaCodeBranch,
+} from "react-icons/fa";
+import bazaroid from "../../assets/bazaroid.png";
 import bookshelf from "../../assets/Bookshelf.PNG";
 import bashabondhu from "../../assets/BashaBondhu.PNG";
 import payNex from "../../assets/payNex.PNG";
-import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiFirebase } from "react-icons/si";
+import {
+  SiMongodb,
+  SiExpress,
+  SiReact,
+  SiNodedotjs,
+  SiFirebase,
+} from "react-icons/si";
 import { motion } from "framer-motion";
 
 // Update techStacks to include usage and tooltip for each tech
 const techStacks = {
   MERN: [
-    { icon: <SiMongodb key="mongo" />, usage: 0.7, tooltip: 'Database' },
-    { icon: <SiExpress key="express" />, usage: 0.6, tooltip: 'Backend Framework' },
-    { icon: <SiReact key="react" />, usage: 0.95, tooltip: 'Main Framework' },
-    { icon: <SiNodedotjs key="node" />, usage: 0.8, tooltip: 'Server Runtime' },
+    { icon: <SiMongodb key="mongo" />, usage: 0.7, tooltip: "Database" },
+    {
+      icon: <SiExpress key="express" />,
+      usage: 0.6,
+      tooltip: "Backend Framework",
+    },
+    { icon: <SiReact key="react" />, usage: 0.95, tooltip: "Main Framework" },
+    { icon: <SiNodedotjs key="node" />, usage: 0.8, tooltip: "Server Runtime" },
   ],
   Firebase: [
-    { icon: <SiFirebase key="firebase" />, usage: 0.85, tooltip: 'Auth & Hosting' },
-    { icon: <SiReact key="react" />, usage: 0.95, tooltip: 'Main Framework' },
+    {
+      icon: <SiFirebase key="firebase" />,
+      usage: 0.85,
+      tooltip: "Auth & Hosting",
+    },
+    { icon: <SiReact key="react" />, usage: 0.95, tooltip: "Main Framework" },
   ],
 };
 
 // Remove the projectImpacts array and all overlay info
 
 const getTechStack = (title) => {
-  if (title.toLowerCase().includes("mern") || title === "Bookshelf" || title === "PayNex Billing App") return techStacks.MERN;
-  if (title.toLowerCase().includes("firebase") || title === "Roommate Finder Web Application") return techStacks.Firebase;
+  if (title.toLowerCase().includes("bazaroid")) return techStacks.MERN;
+  if (title === "Bookshelf") return techStacks.MERN;
+  if (title === "Roommate Finder Web Application") return techStacks.Firebase;
   return [];
 };
 
 // 1. Use concise, punchy project descriptions
 const getShortDesc = (desc) => {
   // Use the first sentence or up to 90 chars, whichever is shorter
-  const firstSentence = desc.split('. ')[0] + (desc.includes('.') ? '.' : '');
-  return firstSentence.length <= 90 ? firstSentence : desc.slice(0, 90) + '...';
+  const firstSentence = desc.split(". ")[0] + (desc.includes(".") ? "." : "");
+  return firstSentence.length <= 90 ? firstSentence : desc.slice(0, 90) + "...";
 };
 
 const projects = [
+  {
+    title: "Bazaroid – Daily Price Tracker for Local Markets",
+    image: bazaroid,
+    liveLink: "https://bazaroid.web.app/",
+    githubLinks: [
+      {
+        label: "Client",
+        url: "https://bazaroid.web.app/",
+      },
+      {
+        label: "Server",
+        url: "https://bazaroid.web.app/",
+      },
+    ],
+    features: [
+      "Role-Based Dashboards – Admin, Vendor, User",
+      "Dynamic Product Listings with filter, sort, and Recharts comparison",
+      "Secure JWT Authentication with Google login",
+      "Responsive UI with Framer Motion animations",
+    ],
+    description:
+      "Bazaroid is a full-stack web application to track daily prices of essential products in Bangladeshi local markets. It lets users view and compare prices, vendors submit daily updates, and admins manage approvals to ensure reliable data for everyone.",
+  },
   {
     title: "Bookshelf",
     image: bookshelf,
@@ -80,32 +128,18 @@ const projects = [
     description:
       "A web application to search and connect with potential roommates by filtering based on user preferences and viewing detailed profiles.",
   },
-  {
-    title: "PayNex Billing App",
-    image: payNex,
-    liveLink: "https://bill-management-webapp.web.app/",
-    githubLinks: [
-      {
-        label: "Client",
-        url: "https://github.com/mdbulbulhasan/payNex-client",
-      },
-    ],
-    features: [
-      "User authentication with Firebase",
-      "Add, update, and delete utility bills securely",
-      "Responsive dashboard with intuitive UI",
-      "Protected routes using JWT token",
-    ],
-    description:
-      "PayNex is a full-stack MERN billing management application that allows users to manage their utility bills efficiently. It includes authentication, CRUD operations for bills, and a clean responsive dashboard for seamless user experience.",
-  },
 ];
 
 const Projects = () => {
   return (
-    <section id="projects" className="px-2 md:px-4 py-8 md:py-16 flex flex-col items-center justify-center w-full">
+    <section
+      id="projects"
+      className="px-2 md:px-4 py-8 md:py-16 flex flex-col items-center justify-center w-full"
+    >
       <div className="max-w-6xl w-full mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center text-cyan-200">My Projects</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center text-cyan-200">
+          My Projects
+        </h2>
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-10"
           initial="hidden"
@@ -142,7 +176,9 @@ const Projects = () => {
                     <span className="card-underline"></span>
                   </h3>
                   {/* Highlightable short description */}
-                  <div className="project-short-desc mb-2 poppins text-xs md:text-base">{shortDesc}</div>
+                  <div className="project-short-desc mb-2 poppins text-xs md:text-base">
+                    {shortDesc}
+                  </div>
                   {/* Tech stack chips */}
                   <div className="flex flex-wrap gap-2 mb-3">
                     {techStack.map((tech, i) => (
@@ -150,7 +186,11 @@ const Projects = () => {
                         key={i}
                         className="tech-chip tech-chip-glow heatmap-chip group relative"
                         aria-label={tech.tooltip}
-                        style={{ boxShadow: `0 0 16px 4px rgba(103,232,249,${tech.usage || 0.2})` }}
+                        style={{
+                          boxShadow: `0 0 16px 4px rgba(103,232,249,${
+                            tech.usage || 0.2
+                          })`,
+                        }}
                       >
                         {tech.icon}
                       </span>
@@ -158,7 +198,9 @@ const Projects = () => {
                   </div>
                   {/* Main Features section */}
                   <div className="mb-3 features-glass-bg">
-                    <div className="text-cyan-300 font-semibold text-xs mb-1 tracking-wide uppercase">Main Features</div>
+                    <div className="text-cyan-300 font-semibold text-xs mb-1 tracking-wide uppercase">
+                      Main Features
+                    </div>
                     <ul className="list-disc ml-4 text-xs text-cyan-50 space-y-1">
                       {project.features.slice(0, 3).map((feature) => (
                         <li key={feature}>{feature}</li>
@@ -175,7 +217,13 @@ const Projects = () => {
                       tabIndex={0}
                       aria-label={`View live project: ${project.title}`}
                     >
-                      {isPayNex ? <span>Live</span> : (<><span>Live</span> <FaExternalLinkAlt /></>)}
+                      {isPayNex ? (
+                        <span>Live</span>
+                      ) : (
+                        <>
+                          <span>Live</span> <FaExternalLinkAlt />
+                        </>
+                      )}
                     </a>
                     {project.githubLinks.map((link) => (
                       <a
@@ -187,7 +235,13 @@ const Projects = () => {
                         tabIndex={0}
                         aria-label={`View ${link.label} source code for ${project.title}`}
                       >
-                        {isPayNex ? <span>{link.label}</span> : (<><span>{link.label}</span> <FaGithub /></>)}
+                        {isPayNex ? (
+                          <span>{link.label}</span>
+                        ) : (
+                          <>
+                            <span>{link.label}</span> <FaGithub />
+                          </>
+                        )}
                       </a>
                     ))}
                   </div>
